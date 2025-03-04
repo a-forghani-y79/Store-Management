@@ -38,4 +38,13 @@ public class CategoryServiceImpl extends BaseCRUDService<Long, Category, Categor
     public JpaRepository<Category, Long> getRepository() {
         return categoryRepository;
     }
+
+    @Override
+    public void delete(Long aLong) {
+        Category category = super.getEntity(aLong);
+        if (!category.getProducts().isEmpty()) {
+            throw new RuntimeException("category has usages");
+        }
+        super.delete(aLong);
+    }
 }
