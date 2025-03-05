@@ -1,5 +1,6 @@
 package com.eight.hundred.group.store.configuration;
 
+import com.eight.hundred.group.store.dao.enums.UserRole;
 import com.eight.hundred.group.store.filter.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -51,10 +52,9 @@ public class SecurityConfiguration {
                         authorizationManagerRequestMatcherRegistry
                                 .requestMatchers("/auth/**",
                                         "/swagger-ui/**",
-                                        "/v3/api-docs/**")
-                                .permitAll()
-                                .anyRequest()
-                                .authenticated())
+                                        "/v3/api-docs/**").permitAll()
+                                .requestMatchers("/user/**").hasAnyAuthority(UserRole.ADMIN.getName())
+                                .anyRequest().authenticated())
                 .sessionManagement(httpSecuritySessionManagementConfigurer ->
                         httpSecuritySessionManagementConfigurer
                                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS))

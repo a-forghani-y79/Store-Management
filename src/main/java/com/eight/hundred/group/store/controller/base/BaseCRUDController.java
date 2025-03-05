@@ -20,31 +20,31 @@ public abstract class BaseCRUDController<ID, E extends BaseEntity, REQ extends B
     public abstract CRUDService<ID, E, REQ, RES> getCRUDService();
 
     @PostMapping("")
-    public ResponseEntity<RES> addCategory(@RequestBody REQ req) {
+    public ResponseEntity<RES> create(@RequestBody REQ req) {
         RES res = getCRUDService().create(req);
         return ResponseEntity.ok(res);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<RES> getCategoryById(@PathVariable ID id) {
+    public ResponseEntity<RES> get(@PathVariable ID id) {
         RES res = getCRUDService().get(id);
         return ResponseEntity.ok(res);
     }
 
     @GetMapping()
-    public ResponseEntity<PaginatedResponseDTO<RES>> getCategories(BasePaginationRequestDTO basePaginationRequestDTO) {
+    public ResponseEntity<PaginatedResponseDTO<RES>> get(BasePaginationRequestDTO basePaginationRequestDTO) {
         PaginatedResponseDTO<RES> resPaginatedResponseDTO = getCRUDService().getList(basePaginationRequestDTO);
         return ResponseEntity.ok(resPaginatedResponseDTO);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<RES> updateCategory(@PathVariable ID id, @RequestBody REQ req) {
+    public ResponseEntity<RES> update(@PathVariable ID id, @RequestBody REQ req) {
         RES res = getCRUDService().update(id, req);
         return ResponseEntity.ok(res);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteCategory(@PathVariable ID id) {
+    public ResponseEntity<Void> delete(@PathVariable ID id) {
         getCRUDService().delete(id);
         return ResponseEntity.noContent().build();
     }

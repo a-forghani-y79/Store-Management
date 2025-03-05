@@ -48,7 +48,7 @@ public class User extends Auditable implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        GrantedAuthority grantedAuthority = () -> role.name();
+        GrantedAuthority grantedAuthority = () -> role.getName();
         return List.of(grantedAuthority);
     }
 
