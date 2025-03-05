@@ -26,13 +26,13 @@ public abstract class BaseCRUDController<ID, E extends BaseEntity, REQ extends B
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<RES> get(@PathVariable ID id) {
+    public ResponseEntity<RES> getById(@PathVariable ID id) {
         RES res = getCRUDService().get(id);
         return ResponseEntity.ok(res);
     }
 
     @GetMapping()
-    public ResponseEntity<PaginatedResponseDTO<RES>> get(BasePaginationRequestDTO basePaginationRequestDTO) {
+    public ResponseEntity<PaginatedResponseDTO<RES>> getList(BasePaginationRequestDTO basePaginationRequestDTO) {
         PaginatedResponseDTO<RES> resPaginatedResponseDTO = getCRUDService().getList(basePaginationRequestDTO);
         return ResponseEntity.ok(resPaginatedResponseDTO);
     }
