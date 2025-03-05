@@ -6,6 +6,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @Entity
@@ -30,6 +32,9 @@ public class Invoice extends Auditable {
     @ManyToOne
     @JoinColumn(name = "seller_id", nullable = false)
     private User seller;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "invoice")
+    private Set<InvoiceRow> invoiceRows = new HashSet<>();
 
 
     @Column(name = "total")
