@@ -1,9 +1,6 @@
 package com.eight.hundred.group.store.dao.entity.base;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.MappedSuperclass;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -13,14 +10,16 @@ import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 
 @Data
-@NoArgsConstructor
-@MappedSuperclass
 @SuperBuilder
+@MappedSuperclass
+@NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
+@EntityListeners(AuditingEntityListener.class)
 public abstract class Auditable extends BaseEntity {
 
     @Temporal(TemporalType.TIMESTAMP)

@@ -15,8 +15,6 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 public class UserResponseDTO extends BaseResponseDTO {
-
-    private Long id;
     private String username;
     private String firstName;
     private String lastName;

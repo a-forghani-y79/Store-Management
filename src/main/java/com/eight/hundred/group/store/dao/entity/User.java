@@ -20,7 +20,7 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @Table(name = User.tableName)
 public class User extends Auditable implements UserDetails {
-    public static final String tableName = "user";
+    public static final String tableName = "_user";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

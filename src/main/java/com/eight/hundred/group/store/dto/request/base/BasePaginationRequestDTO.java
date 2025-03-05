@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = true)
 public class BasePaginationRequestDTO extends BaseRequestDTO {
     @PositiveOrZero(message = "pagination.request.page.positive-or-zero")
-    private Integer page;
+    private Integer page = 0;
     @Positive(message = "pagination.request.size.positive")
-    private Integer size;
+    private Integer size = 10;
 }

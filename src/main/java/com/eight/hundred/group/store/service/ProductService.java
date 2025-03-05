@@ -6,4 +6,5 @@ import com.eight.hundred.group.store.dto.response.ProductResponseDTO;
 
 public interface ProductService extends CRUDService<Long, Product, ProductRequestDTO, ProductResponseDTO> {
 
+    void decreaseStockOfProduct(Long productId);
 }

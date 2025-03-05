@@ -12,8 +12,9 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BaseResponseDTO {
-    private String createBy;
-    private String updateBy;
-    private Date createDate;
-    private Date updateDate;
+    private Long id;
+    private String createdBy;
+    private String modifiedBy;
+    private Long createdDate;
+    private Long modifiedDate;
 }

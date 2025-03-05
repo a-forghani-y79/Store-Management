@@ -16,8 +16,6 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 public class InvoiceRowResponseDTO extends BaseResponseDTO {
-
-    private Long id;
     private ProductResponseDTO productResponseDTO;
     private Integer quantity;
     private BigDecimal price;

@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 import java.math.BigDecimal;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Data
@@ -18,10 +18,8 @@ import java.util.Set;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 public class InvoiceResponseDTO extends BaseResponseDTO {
-
-    private Long id;
     private ClientResponseDTO client;
     private UserResponseDTO seller;
-    private Set<InvoiceRowResponseDTO> invoiceRows = new HashSet<>();
+    private List<InvoiceRowResponseDTO> invoiceRows = new ArrayList<>();
     private BigDecimal total;
 }

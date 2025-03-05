@@ -6,8 +6,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Data
 @Entity
@@ -34,8 +33,11 @@ public class Invoice extends Auditable {
     private User seller;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "invoice")
-    private Set<InvoiceRow> invoiceRows = new HashSet<>();
+    private List<InvoiceRow> invoiceRows = new ArrayList<>();
 
+    public void addAllInvoiceRows(Collection<InvoiceRow> invoiceRows) {
+        this.invoiceRows.addAll(invoiceRows);
+    }
 
     @Column(name = "total")
     private BigDecimal total;

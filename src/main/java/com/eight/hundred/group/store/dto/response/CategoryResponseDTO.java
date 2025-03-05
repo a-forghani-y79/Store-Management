@@ -13,7 +13,6 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 public class CategoryResponseDTO extends BaseResponseDTO {
-    private Long id;
     private String name;
     private String description;
 }

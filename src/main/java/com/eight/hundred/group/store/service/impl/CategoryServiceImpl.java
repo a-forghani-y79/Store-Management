@@ -26,7 +26,7 @@ public class CategoryServiceImpl extends BaseCRUDService<Long, Category, Categor
         }
         category.setName(categoryRequestDTO.getName());
         category.setDescription(categoryRequestDTO.getDescription());
-        return null;
+        return category;
     }
 
     @Override

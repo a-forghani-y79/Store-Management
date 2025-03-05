@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -19,6 +20,6 @@ public class InvoiceRequestDTO extends BaseRequestDTO {
     private Long clientId;
 
     @NotNull(message = "invoice.request.invoice-rows.not-null")
-    private Set<InvoiceRowRequestDTO> invoiceRows;
+    private List<InvoiceRowRequestDTO> invoiceRows;
 
 }

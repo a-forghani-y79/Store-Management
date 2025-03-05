@@ -45,4 +45,13 @@ public class ProductServiceImpl extends BaseCRUDService<Long, Product, ProductRe
     public JpaRepository<Product, Long> getRepository() {
         return productRepository;
     }
+
+    @Override
+    public void decreaseStockOfProduct(Long productId) {
+        productRepository.findById(productId).ifPresent(product -> {
+            Integer stock = product.getStock();
+            product.setStock(stock - 1);
+            productRepository.save(product);
+        });
+    }
 }
