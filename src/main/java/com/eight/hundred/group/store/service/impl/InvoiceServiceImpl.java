@@ -81,6 +81,11 @@ public class InvoiceServiceImpl extends BaseCRUDService<Long, Invoice, InvoiceRe
         return invoiceRepository;
     }
 
+    @Override
+    public Class<Invoice> getEntityClass() {
+        return Invoice.class;
+    }
+
     private User getCurrentUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Object principal = authentication.getPrincipal();

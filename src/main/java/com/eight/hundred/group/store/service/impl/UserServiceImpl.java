@@ -79,4 +79,9 @@ public class UserServiceImpl extends BaseCRUDService<Long, User, UserRequestDTO,
     public JpaRepository<User, Long> getRepository() {
         return userRepository;
     }
+
+    @Override
+    public Class<User> getEntityClass() {
+        return User.class;
+    }
 }

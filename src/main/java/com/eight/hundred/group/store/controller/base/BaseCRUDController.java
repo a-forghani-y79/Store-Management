@@ -7,6 +7,7 @@ import com.eight.hundred.group.store.dto.request.base.BaseRequestDTO;
 import com.eight.hundred.group.store.dto.response.base.BaseResponseDTO;
 import com.eight.hundred.group.store.dto.response.base.PaginatedResponseDTO;
 import com.eight.hundred.group.store.service.CRUDService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -20,7 +21,7 @@ public abstract class BaseCRUDController<ID, E extends BaseEntity, REQ extends B
     public abstract CRUDService<ID, E, REQ, RES> getCRUDService();
 
     @PostMapping("")
-    public ResponseEntity<RES> create(@RequestBody REQ req) {
+    public ResponseEntity<RES> create(@RequestBody @Valid REQ req) {
         RES res = getCRUDService().create(req);
         return ResponseEntity.ok(res);
     }
@@ -38,7 +39,7 @@ public abstract class BaseCRUDController<ID, E extends BaseEntity, REQ extends B
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<RES> update(@PathVariable ID id, @RequestBody REQ req) {
+    public ResponseEntity<RES> update(@PathVariable ID id, @RequestBody @Valid REQ req) {
         RES res = getCRUDService().update(id, req);
         return ResponseEntity.ok(res);
     }

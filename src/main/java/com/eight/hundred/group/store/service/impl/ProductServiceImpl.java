@@ -47,6 +47,11 @@ public class ProductServiceImpl extends BaseCRUDService<Long, Product, ProductRe
     }
 
     @Override
+    public Class<Product> getEntityClass() {
+        return Product.class;
+    }
+
+    @Override
     public void decreaseStockOfProduct(Long productId) {
         productRepository.findById(productId).ifPresent(product -> {
             Integer stock = product.getStock();

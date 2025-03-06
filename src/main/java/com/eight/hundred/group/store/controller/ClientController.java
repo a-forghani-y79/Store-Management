@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Validated
 @RestController
-@RequestMapping("/clients")
 @RequiredArgsConstructor
+@RequestMapping("/clients")
 public class ClientController extends BaseCRUDController<Long, Client, ClientRequestDTO, ClientResponseDTO> {
 
     private final ClientService clientService;

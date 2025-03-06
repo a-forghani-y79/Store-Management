@@ -27,4 +27,6 @@ public interface CRUDService<ID, E extends BaseEntity, REQ extends BaseRequestDT
 
     JpaRepository<E, ID> getRepository();
 
+    Class<E> getEntityClass();
+
 }

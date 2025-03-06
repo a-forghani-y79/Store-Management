@@ -40,6 +40,11 @@ public class CategoryServiceImpl extends BaseCRUDService<Long, Category, Categor
     }
 
     @Override
+    public Class<Category> getEntityClass() {
+        return Category.class;
+    }
+
+    @Override
     public void delete(Long aLong) {
         Category category = super.getEntity(aLong);
         if (!category.getProducts().isEmpty()) {

@@ -5,6 +5,7 @@ import com.eight.hundred.group.store.dto.request.base.BasePaginationRequestDTO;
 import com.eight.hundred.group.store.dto.request.base.BaseRequestDTO;
 import com.eight.hundred.group.store.dto.response.base.BaseResponseDTO;
 import com.eight.hundred.group.store.dto.response.base.PaginatedResponseDTO;
+import com.eight.hundred.group.store.exception.NotFoundException;
 import com.eight.hundred.group.store.service.CRUDService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -26,7 +27,7 @@ public abstract class BaseCRUDService<ID, E extends BaseEntity, REQ extends Base
     @Transactional
     public RES update(ID id, REQ req) {
         E entity = getRepository().findById(id)
-                .orElseThrow(() -> new RuntimeException("Entity not found"));
+                .orElseThrow(() -> new NotFoundException(getEntityClass()));
 
         entity = mapToEntity(req, entity);
         E updatedEntity = getRepository().save(entity);
@@ -37,7 +38,7 @@ public abstract class BaseCRUDService<ID, E extends BaseEntity, REQ extends Base
     @Transactional(readOnly = true)
     public RES get(ID id) {
         E entity = getRepository().findById(id)
-                .orElseThrow(() -> new RuntimeException("Entity not found"));
+                .orElseThrow(() -> new NotFoundException(getEntityClass()));
         return mapToResponseDTO(entity);
     }
 
@@ -58,6 +59,6 @@ public abstract class BaseCRUDService<ID, E extends BaseEntity, REQ extends Base
     @Override
     @Transactional(readOnly = true)
     public E getEntity(ID id) {
-        return getRepository().findById(id).orElseThrow(() -> new RuntimeException("Entity not found"));
+        return getRepository().findById(id).orElseThrow(() -> new NotFoundException(getEntityClass()));
     }
 }

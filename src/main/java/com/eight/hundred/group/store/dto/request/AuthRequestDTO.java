@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AuthRequestDTO {
-    @NotEmpty(message = "auth.request.user.not-empty")
+    @NotEmpty(message = "auth.request.username.not-empty")
     private String username;
     @NotEmpty(message = "auth.request.password.not-empty")
     private String password;

@@ -44,4 +44,9 @@ public class InvoiceRowServiceImpl extends BaseCRUDService<Long, InvoiceRow, Inv
     public JpaRepository<InvoiceRow, Long> getRepository() {
         return invoiceRowRepository;
     }
+
+    @Override
+    public Class<InvoiceRow> getEntityClass() {
+        return InvoiceRow.class;
+    }
 }

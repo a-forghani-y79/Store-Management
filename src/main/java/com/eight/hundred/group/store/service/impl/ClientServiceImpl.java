@@ -38,4 +38,9 @@ public class ClientServiceImpl extends BaseCRUDService<Long, Client, ClientReque
     public JpaRepository<Client, Long> getRepository() {
         return clientRepository;
     }
+
+    @Override
+    public Class<Client> getEntityClass() {
+        return Client.class;
+    }
 }
