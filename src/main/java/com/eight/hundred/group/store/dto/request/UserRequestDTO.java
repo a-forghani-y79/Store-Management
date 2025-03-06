@@ -1,12 +1,7 @@
 package com.eight.hundred.group.store.dto.request;
 
-import com.eight.hundred.group.store.dao.enums.UserRole;
 import com.eight.hundred.group.store.dto.request.base.BaseRequestDTO;
-import jakarta.persistence.Column;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -17,7 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class UserRequestDTO  extends BaseRequestDTO {
+public class UserRequestDTO extends BaseRequestDTO {
 
     @NotEmpty(message = "user.request.username.not-empty")
     private String username;

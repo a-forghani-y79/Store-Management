@@ -19,7 +19,7 @@ public class PaginatedResponseDTO<T extends BaseResponseDTO> {
     private List<T> data;
 
 
-    public static <T extends BaseResponseDTO,E extends BaseEntity> PaginatedResponseDTO<T> of(Page<E> page, Function<E, T> mapper) {
+    public static <T extends BaseResponseDTO, E extends BaseEntity> PaginatedResponseDTO<T> of(Page<E> page, Function<E, T> mapper) {
         List<T> list = page.get().map(mapper).toList();
         return PaginatedResponseDTO.<T>builder()
                 .size(page.getSize())
